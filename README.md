@@ -5,8 +5,8 @@ The platform will cater to two main types of users: students and teachers. Stude
 Our website's interface will be designed with user-friendliness in mind, ensuring a smooth and enjoyable learning experience. We are committed to making education accessible and engaging for all users. 
 
 ## Project Technology
-This is a web-Based Project
+Web-Based Project
 ## Developer Name
 Muhammad Umar
 ## Course Name
-software Engineering
+Software Engineering
