@@ -218,6 +218,125 @@ const AddCredentials = () => {
                             </MDBCardBody>
                           </div>
                         </Tab>
+                        <Tab eventKey="ex1-pills-3" title="Add Courses">
+                          <p style={{ marginTop: "5px", fontWeight: "bold" }}>
+                            Add Courses
+                          </p>
+                          <div className="header">
+                            <MDBCardBody>
+                              <form
+                                onSubmit={handleSubmit}
+                                encType="multipart/form-data"
+                                id="Coursesform"
+                              >
+                                <MDBModalBody>
+                                  <Form.Group className="mb-3">
+                                    <Form.Control
+                                      type="text"
+                                      placeholder="Course Name"
+                                      size="lg"
+                                      name="name"
+                                      id="card"
+                                      required
+                                      style={{
+                                        borderRadius: 0,
+                                        color: "black",
+                                        flex: 1,
+                                      }}
+                                    />
+                                  </Form.Group>
+                                  <Form.Group className="mb-3">
+                                    <p
+                                      style={{
+                                        marginBottom: "0px",
+                                        textAlign: "left",
+                                      }}
+                                    >
+                                      Image
+                                    </p>
+                                    <Form.Control
+                                      type="file"
+                                      size="lg"
+                                      id="card"
+                                      name="image"
+                                      required
+                                      style={{
+                                        borderRadius: 0,
+                                        color: "black",
+                                        flex: 1,
+                                      }}
+                                    />
+                                  </Form.Group>
+                                  <Form.Group className="mb-3">
+                                    <select
+                                      class="form-select"
+                                      aria-label="Default select example"
+                                      id="card"
+                                      name="brand"
+                                      style={{ color: "black" }}
+                                    >
+                                      <option selected>
+                                        Choose Instructor
+                                      </option>
+                                      {data.map((item, index) => (
+                                        <option
+                                          value={item.instructorName}
+                                          style={{ color: "white" }}
+                                        >
+                                          {item.instructorName}
+                                        </option>
+                                      ))}
+                                    </select>
+                                  </Form.Group>
+                                  <Form.Group className="mb-3">
+                                    <Form.Control
+                                      type="number"
+                                      name="price"
+                                      placeholder="Price (Rs)"
+                                      size="lg"
+                                      id="card"
+                                      required
+                                      style={{
+                                        borderRadius: 0,
+                                        color: "black",
+                                        flex: 1,
+                                      }}
+                                    />
+                                  </Form.Group>
+                                  <Form.Group className="mb-3">
+                                    <Form.Control
+                                      as="textarea"
+                                      placeholder="Description (Write something)"
+                                      rows={3}
+                                      size="lg"
+                                      id="card"
+                                      name="description"
+                                      required
+                                      style={{
+                                        borderRadius: 0,
+                                        color: "black",
+                                        flex: 1,
+                                      }}
+                                    />
+                                  </Form.Group>
+                                </MDBModalBody>
+
+                                <MDBBtn
+                                  type="submit"
+                                  style={{ width: "100%" }}
+                                  className="btnsc"
+                                >
+                                  {submit ? (
+                                    <MDBSpinner color="info" />
+                                  ) : (
+                                    <span>Add Course</span>
+                                  )}
+                                </MDBBtn>
+                              </form>
+                            </MDBCardBody>
+                          </div>
+                        </Tab>
+
                         
                       </Tabs>
                     </div>
