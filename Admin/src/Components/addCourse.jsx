@@ -337,7 +337,53 @@ const AddCredentials = () => {
                           </div>
                         </Tab>
 
-                        
+                        <Tab eventKey="ex1-pills-4" title="Add Instructors">
+                          <p style={{ marginTop: "5px", fontWeight: "bold" }}>
+                            Add Instructors
+                          </p>
+                          <div className="header">
+                            <MDBCardBody>
+                              <form onSubmit={handleSubmitInstructor}>
+                                <MDBModalBody>
+                                  <Form.Group className="mb-3">
+                                    {/* <p style={{ marginBottom: "0px", textAlign: "left" }}>
+                    Name
+                  </p> */}
+                                    <Form.Control
+                                      type="text"
+                                      placeholder="Instructor Name"
+                                      size="lg"
+                                      name="name"
+                                      id="card"
+                                      value={name}
+                                      onChange={(event) => {
+                                        setName(event.target.value);
+                                      }}
+                                      required
+                                      style={{
+                                        borderRadius: 0,
+                                        color: "black",
+                                        flex: 1,
+                                      }}
+                                    />
+                                  </Form.Group>
+                                </MDBModalBody>
+
+                                <MDBBtn
+                                  type="submit"
+                                  className="btnsc"
+                                  style={{width:'100%'}}
+                                >
+                                  {submit ? (
+                                    <MDBSpinner color="info" />
+                                  ) : (
+                                    <span>Add Instructor</span>
+                                  )}
+                                </MDBBtn>
+                              </form>
+                            </MDBCardBody>
+                          </div>
+                        </Tab>
                       </Tabs>
                     </div>
                   </div>
