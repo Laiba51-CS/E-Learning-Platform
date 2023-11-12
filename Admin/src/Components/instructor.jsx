@@ -319,7 +319,87 @@ export default function Instructor() {
         {/* </div> */}
       </div>
 
-     
+      <MDBModal show={basicModal} setShow={setBasicModal} tabIndex="-1">
+        <MDBModalDialog style={{ borderRadius: 0 }}>
+          <MDBModalContent id="card">
+            <MDBModalHeader>
+              <MDBModalTitle>Add Instructor</MDBModalTitle>
+              <MDBBtn
+                className="btn-close"
+                color="none"
+                onClick={toggleShow}
+              ></MDBBtn>
+            </MDBModalHeader>
+            <form onSubmit={handleSubmit}>
+              <MDBModalBody>
+                <Form.Group className="mb-3">
+                  {/* <p style={{ marginBottom: "0px", textAlign: "left" }}>
+                    Name
+                  </p> */}
+                  <Form.Control
+                    type="text"
+                    placeholder="Instructor Name"
+                    size="lg"
+                    name="name"
+                    id="card"
+                    value={name}
+                    onChange={(event) => {
+                      setName(event.target.value);
+                    }}
+                    required
+                    style={{ borderRadius: 0, color: "black", flex: 1 }}
+                  />
+                </Form.Group>
+              </MDBModalBody>
+
+              <MDBBtn type="submit" className="btn btn-primary mb-4">
+                {submit ? <MDBSpinner color="info" /> : <span>Add</span>}
+              </MDBBtn>
+            </form>
+          </MDBModalContent>
+        </MDBModalDialog>
+      </MDBModal>
+
+      <MDBModal show={updateModal} setShow={setUpdateModal} tabIndex="-1">
+        <MDBModalDialog style={{ borderRadius: 0 }}>
+          <MDBModalContent id="card">
+            <MDBModalHeader>
+              <MDBModalTitle>Update Instructor</MDBModalTitle>
+              <MDBBtn
+                className="btn-close"
+                color="none"
+                onClick={toggleUpdate}
+              ></MDBBtn>
+            </MDBModalHeader>
+            <form onSubmit={handleUpdate}>
+              <MDBModalBody>
+                <Form.Group className="mb-3">
+                  <p style={{ marginBottom: "0px", textAlign: "left" }}>Name</p>
+                  <Form.Control
+                    type="text"
+                    placeholder="Instructor Name"
+                    size="lg"
+                    name="name"
+                    id="card"
+                    value={updatename}
+                    onChange={(event) => {
+                      setUpdatename(event.target.value);
+                    }}
+                    required
+                    style={{ borderRadius: 0, color: "black", flex: 1 }}
+                  />
+                </Form.Group>
+              </MDBModalBody>
+
+              {/* <MDBModalFooter> */}
+              <MDBBtn type="submit" className="btn btn-primary mb-4">
+                {submit ? <MDBSpinner color="info" /> : <span>Update</span>}
+              </MDBBtn>
+              {/* </MDBModalFooter> */}
+            </form>
+          </MDBModalContent>
+        </MDBModalDialog>
+      </MDBModal>
     </div>
   );
 }
