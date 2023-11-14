@@ -415,7 +415,223 @@ export default function Courses() {
         {/* </div> */}
       </div>
 
-     
+      <MDBModal show={basicModal} setShow={setBasicModal} tabIndex="-1">
+        <MDBModalDialog style={{ borderRadius: 0 }}>
+          <MDBModalContent id="card">
+            <MDBModalHeader>
+              <MDBModalTitle>Add Course</MDBModalTitle>
+              <MDBBtn
+                className="btn-close"
+                color="none"
+                onClick={toggleShow}
+              ></MDBBtn>
+            </MDBModalHeader>
+            <form
+              onSubmit={handleSubmit}
+              encType="multipart/form-data"
+              id="Coursesform"
+            >
+              <MDBModalBody>
+                <Form.Group className="mb-3">
+                  <Form.Control
+                    type="text"
+                    placeholder="Course Name"
+                    size="lg"
+                    name="name"
+                    id="card"
+                    required
+                    style={{ borderRadius: 0, color: "black", flex: 1 }}
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <p style={{ marginBottom: "0px", textAlign: "left" }}>
+                    Image
+                  </p>
+                  <Form.Control
+                    type="file"
+                    size="lg"
+                    id="card"
+                    name="image"
+                    required
+                    style={{ borderRadius: 0, color: "black", flex: 1 }}
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                    id="card"
+                    name="brand"
+                    style={{ color: "black" }}
+                  >
+                    <option selected>Choose Instructor</option>
+                    {data.map((item, index) => (
+                      <option
+                        value={item.instructorName}
+                        style={{ color: "white" }}
+                      >
+                        {item.instructorName}
+                      </option>
+                    ))}
+                  </select>
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Control
+                    type="number"
+                    name="price"
+                    placeholder="Price (Rs)"
+                    size="lg"
+                    id="card"
+                    required
+                    style={{ borderRadius: 0, color: "black", flex: 1 }}
+                  />
+                </Form.Group>
+                {/* <Form.Group className="mb-3">
+
+                  <Form.Control
+                    type="number"
+                    placeholder="Stock"
+                    size="lg"
+                    id="card"
+                    name="stock"
+                    required
+                    style={{ borderRadius: 0, color: "black", flex: 1 }}
+                  />
+                </Form.Group> */}
+                <Form.Group className="mb-3">
+                  <Form.Control
+                    as="textarea"
+                    placeholder="Description (Write something)"
+                    rows={3}
+                    size="lg"
+                    id="card"
+                    name="description"
+                    required
+                    style={{ borderRadius: 0, color: "black", flex: 1 }}
+                  />
+                </Form.Group>
+              </MDBModalBody>
+
+              {/* <MDBModalFooter> */}
+              <MDBBtn type="submit" className="btn btn-primary mb-4">
+                {submit ? <MDBSpinner color="info" /> : <span>Add</span>}
+              </MDBBtn>
+              {/* </MDBModalFooter> */}
+            </form>
+          </MDBModalContent>
+        </MDBModalDialog>
+      </MDBModal>
+
+      <MDBModal show={showUpdate} setShow={setshowUpdate} tabIndex="-1">
+        <MDBModalDialog style={{ borderRadius: 0 }}>
+          <MDBModalContent id="card">
+            <MDBModalHeader>
+              <MDBModalTitle>Update Course</MDBModalTitle>
+              <MDBBtn
+                className="btn-close"
+                color="none"
+                onClick={toogleUpdate}
+              ></MDBBtn>
+            </MDBModalHeader>
+            <form
+              onSubmit={handleUpdate}
+              encType="multipart/form-data"
+              id="Coursesform"
+            >
+              <MDBModalBody>
+                <Form.Group className="mb-3">
+                  <Form.Control
+                    type="text"
+                    placeholder="Pent Shirt"
+                    size="lg"
+                    name="name"
+                    id="card"
+                    value={Uname}
+                    onChange={(e) => {
+                      setUName(e.target.value);
+                    }}
+                    required
+                    style={{ borderRadius: 0, color: "black", flex: 1 }}
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <p style={{ marginBottom: "0px", textAlign: "left" }}>
+                    Image
+                  </p>
+                  <Form.Control
+                    type="file"
+                    size="lg"
+                    id="card"
+                    name="image"
+                    style={{ borderRadius: 0, color: "black", flex: 1 }}
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                    id="card"
+                    name="brand"
+                    style={{ color: "black" }}
+                    value={Ubrand}
+                    onChange={(e) => {
+                      setUbrand(e.target.value);
+                    }}
+                  >
+                    <option selected>Choose Instructor</option>
+                    {data.map((item, index) => (
+                      <option
+                        value={item.instructorName}
+                        style={{ color: "white" }}
+                      >
+                        {item.instructorName}
+                      </option>
+                    ))}
+                  </select>
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Control
+                    type="number"
+                    name="price"
+                    placeholder="Price"
+                    size="lg"
+                    id="card"
+                    value={Uprice}
+                    onChange={(e) => {
+                      setUprice(e.target.value);
+                    }}
+                    required
+                    style={{ borderRadius: 0, color: "black", flex: 1 }}
+                  />
+                </Form.Group>
+
+                <Form.Group className="mb-3">
+                  <Form.Control
+                    as="textarea"
+                    placeholder="Description (Write something)"
+                    rows={3}
+                    size="lg"
+                    id="card"
+                    name="description"
+                    value={Udescription}
+                    onChange={(e) => {
+                      setUdescription(e.target.value);
+                    }}
+                    required
+                    style={{ borderRadius: 0, color: "black", flex: 1 }}
+                  />
+                </Form.Group>
+              </MDBModalBody>
+
+              {/* <MDBModalFooter> */}
+              <MDBBtn type="submit" className="btn btn-primary mb-4">
+                {submit ? <MDBSpinner color="info" /> : <span>Update</span>}
+              </MDBBtn>
+              {/* </MDBModalFooter> */}
+            </form>
+          </MDBModalContent>
+        </MDBModalDialog>
+      </MDBModal>
     </div>
   );
 }
