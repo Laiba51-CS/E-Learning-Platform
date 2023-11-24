@@ -336,7 +336,6 @@ const AddCredentials = () => {
                             </MDBCardBody>
                           </div>
                         </Tab>
-
                         <Tab eventKey="ex1-pills-4" title="Add Instructors">
                           <p style={{ marginTop: "5px", fontWeight: "bold" }}>
                             Add Instructors
